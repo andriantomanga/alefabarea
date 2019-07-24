@@ -14,27 +14,26 @@
  * limitations under the License.
  */
 
-package mg.alefabarea;
+package mg.alefabarea.domain;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import lombok.Data;
+
+import java.awt.*;
 
 /**
  * @author Andriantomanga
  */
-@Configuration
-@ComponentScan("mg.alefabarea")
-public class GameConfig {
+@Data
+public class Player extends AbstractMovableEntity {
 
-    @Value("${alefabarea.default.scale:1}")
-    private int defaultScale;
+    private String name;
+    private boolean proposed;
+    private Point nextStep;
+    private Side side;
+    private PlayingPosition playingPosition;
 
-    @Bean
-    public GameProperties gameProperties() {
-        GameProperties gameProperties = new GameProperties();
-        gameProperties.setScale(defaultScale);
-        return gameProperties;
+    @Override
+    public void draw(Graphics2D drawer) {
+        // TODO
     }
 }

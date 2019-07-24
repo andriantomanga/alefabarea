@@ -14,27 +14,11 @@
  * limitations under the License.
  */
 
-package mg.alefabarea;
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+package mg.alefabarea.domain;
 
 /**
  * @author Andriantomanga
  */
-@Configuration
-@ComponentScan("mg.alefabarea")
-public class GameConfig {
-
-    @Value("${alefabarea.default.scale:1}")
-    private int defaultScale;
-
-    @Bean
-    public GameProperties gameProperties() {
-        GameProperties gameProperties = new GameProperties();
-        gameProperties.setScale(defaultScale);
-        return gameProperties;
-    }
+public enum Side {
+    LEFT, RIGHT;
 }
